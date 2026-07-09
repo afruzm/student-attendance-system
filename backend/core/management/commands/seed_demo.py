@@ -20,13 +20,19 @@ TEACHERS = [
     ('Teacher 02', 'Associate Professor'),
     ('Teacher 03', 'Lecturer'),
 ]
-SUBJECTS = ['Web-программирование','Эффективность информационных систем','Моделирование социально-экономических систем']
+SUBJECTS = [
+    'Web Development',
+    'Information Systems Efficiency',
+    'Socio-Economic Systems Modeling',
+]
 
 def slug(i, prefix): return f'{prefix}{i}'
 
 def lesson_subgroup_number(lesson):
-    if 'гр.1' in lesson.subgroup: return '1'
-    if 'гр.2' in lesson.subgroup: return '2'
+    if 'group 1' in lesson.subgroup:
+        return '1'
+    if 'group 2' in lesson.subgroup:
+        return '2'
     return ''
 
 class Command(BaseCommand):
