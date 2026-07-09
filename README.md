@@ -1,92 +1,108 @@
-# Attendance Fullstack — KFU Premium UI
+# 🎓 Student Attendance Management System
 
-Демо-проект для ВКР: веб-приложение учета посещаемости студентов вуза с ролями **деканат**, **преподаватель** и **студент**.
+A full-stack web application for managing student attendance in higher education institutions.
 
-## Что улучшено
+The system provides role-based access for administrators, teachers, and students, allowing attendance tracking, report generation, and data management through a modern web interface.
 
-- Полностью переработан React-интерфейс в синей стилистике КФУ: glassmorphism, плавные карточки, анимации, современная боковая навигация.
-- Добавлены более презентационные экраны: панель деканата, аналитика, электронный журнал преподавателя, семестровая ведомость, личный кабинет студента.
-- Улучшены фильтры по кафедре, группе, подгруппе, предмету, преподавателю и периоду.
-- Добавлены визуальные показатели: процент посещаемости, количество отметок, пропуски, студенты группы риска.
-- Сохранена работа с Django REST API, SQLite и экспортом отчета `.docx`.
-- Добавлен production build для фронтенда: `npm run build`.
+---
 
-## Логины для проверки
+## ✨ Features
 
-- Деканат: `dean` / `1234`
-- Преподаватель: `t4` / `1234` или `t6` / `1234`
-- Студент: `s1` / `1234`
+- 🔐 User authentication and authorization
+- 👨‍🏫 Role-based access (Administrator, Teacher, Student)
+- 📋 Attendance management
+- 📊 Attendance analytics
+- 📄 Excel report generation
+- 💾 PostgreSQL database support
+- 🔗 REST API for frontend-backend communication
 
-## Запуск backend на Windows
+---
+
+## 🛠 Tech Stack
+
+### Backend
+
+- Python
+- Django
+- Django REST Framework
+
+### Frontend
+
+- React
+- JavaScript
+- HTML5
+- CSS3
+
+### Database
+
+- PostgreSQL
+
+---
+
+## 📁 Project Structure
+
+```
+attendance-management-system/
+│
+├── backend/
+│   ├── attendance/
+│   ├── core/
+│   ├── manage.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── ...
+│
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Backend
 
 ```bash
 cd backend
+
 python -m venv venv
+
 venv\Scripts\activate
+
 pip install -r requirements.txt
+
 python manage.py migrate
-python manage.py seed_demo
+
 python manage.py runserver
 ```
 
-## Запуск backend на macOS/Linux
+---
 
-```bash
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py seed_demo
-python manage.py runserver
-```
-
-## Запуск frontend
-
-Во втором терминале:
+### Frontend
 
 ```bash
 cd frontend
+
 npm install
-npm run dev
+
+npm start
 ```
 
-Открыть в браузере: http://localhost:5173
+---
 
-## Сборка frontend
+## 📷 Screenshots
 
-```bash
-cd frontend
-npm run build
-```
+> Screenshots will be added soon.
 
-## Основные API
+---
 
-- `POST /api/login/` — вход пользователя.
-- `GET /api/today-lessons/?role=student&user_id=1` — пары на сегодня.
-- `GET /api/lessons/` — расписание.
-- `POST /api/mark-attendance/` — сохранение отметок посещаемости.
-- `GET /api/analytics/` — аналитика для деканата.
-- `GET /api/semester-matrix/` — семестровая ведомость.
-- `GET /api/export-report/` — экспорт отчета DOCX.
+## 👩‍💻 Author
 
-Для Android-эмулятора адрес backend: `http://10.0.2.2:8000/api/`.
+**Afruz Mastiyeva**
 
-## Обновление отчетности
+Bachelor's degree in Applied Informatics
 
-В системе добавлена расширенная аналитическая отчетность для преподавателя и деканата. Помимо DOCX-выгрузки доступна выгрузка в Excel `XLSX` через кнопку «Скачать XLSX-аналитику» на панели аналитики.
-
-В XLSX-файл входят листы:
-- `Сводка` — общие показатели посещаемости;
-- `Студенты` — посещено, пропущено, опоздания, процент посещаемости и статус риска;
-- `Рейтинг` — рейтинг студентов по посещаемости;
-- `Группа риска` — студенты ниже 70% посещаемости;
-- `Дисциплины` — посещаемость по предметам;
-- `Журнал пропусков` — дата, студент, группа, дисциплина, причина;
-- `Факультеты` — общая статистика по факультету / кафедре;
-- `Преподаватели` — проведенные занятия и заполненные журналы;
-- `Сравнение групп` — сводка за семестр и диаграмма сравнения групп;
-- `Динамика` — график посещаемости по неделям;
-- `Тепловая карта` — календарная оценка посещаемости по датам.
-
-Для работы Excel-отчетов в backend добавлена зависимость `openpyxl`.
+Junior Python Developer
